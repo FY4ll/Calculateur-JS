@@ -1,0 +1,29 @@
+.title {
+  width: auto;
+  height: auto;
+  font-family: 'Inter';
+  color: white;
+  font-style: normal;
+  font-size: 44px;
+  text-align: center;
+  background-color: #767ADA;
+}
+
+h2 {
+  color: white;
+  background-color: #767ADA;
+  border: 4px solid white;
+  box-shadow: 0px 5px 5px gray;
+}
+
+.containerHaut {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  text-align: center;
+}
+
+.dropdown {
+  appearance: none;
+  text-align: center;
+}
