@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  padding: 0px;
+  font-family: 'Inter'
+}
+
 .title {
   width: auto;
   height: auto;
-  font-family: 'Inter';
   color: white;
   font-style: normal;
   font-size: 44px;
@@ -9,21 +15,108 @@
   background-color: #767ADA;
 }
 
-h2 {
+.branchselector {
+  background: #767ADA;
+  border: 4px solid #FFFFFF;
   color: white;
-  background-color: #767ADA;
-  border: 4px solid white;
-  box-shadow: 0px 5px 5px gray;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  height: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.branchselector:hover {
+  background: #8b8ede;
 }
 
 .containerHaut {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 2fr);
+}
+
+.cb {
+  background-color: white;
+  border: 6px solid #767ADA;
+  font-size: 25px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+  text-align: center;
+  transition: 1s;
+}
+
+.row-align {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   text-align: center;
 }
 
-.dropdown {
-  appearance: none;
+.semcase {
   text-align: center;
+}
+
+
+
+.containerMid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  list-style: none;
+}
+
+label {
+  display: block;
+}
+
+ul li {
+  text-align: center;
+}
+
+input[name="semestre"] {
+  accent-color: #767ADA;
+}
+
+li {
+  font-size: 25px;
+}
+
+.semestre {
+  width: 25px;
+  height: 25px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#data {
+  margin-bottom: 10px;
+}
+
+#data {
+  padding: 10px;
+  width: 90px;
+}
+
+.moyenne {
+  background-color: #767ADA;
+  color: white;
 }

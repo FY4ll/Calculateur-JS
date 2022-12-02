@@ -10,31 +10,114 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>Document</title>
+
 </head>
 
 <body>
+
     <div class="title">
         <h1>Mon Calculateur de moyenne</h1>
     </div>
     <div class="containerHaut">
-        <h2>ecole pro</h2>
-        <h2>Cours inter</h2>
-        <h2>compétence de base</h2>
-        <h2>culture G</h2>
-        <h2>TPI</h2>
+        <button class="branchselector" id="eco">
+            ecole pro
+        </button>
+        <button class="branchselector">
+            Cours inter
+        </button>
+        <button class="branchselector">
+            culture G
+        </button>
+        <button class="branchselector">
+            compétence de base
+        </button>
+        <button class="branchselector">
+            TPI
+        </button>
     </div>
     <div class="containerMid">
+        <div class="row-align"></div>
+        <div class="row-align"></div>
+        <div class="row-align">
+            <div class="semcase">
 
-        <select name="Branche" class="dropdown" id="pet-select">
-            <option value="">Choissisez la branche</option>
-            <option value="École pro">École pro</option>
-            <option value="CIE">CIE</option>
-            <option value="compétence de base">Compétence de base</option>
-            <option value="Culture G">Cultre G</option>
-            <option value="TPI">TPI</option>
-        </select>
+                <ul>
+                    <li>
+                        <input type="radio" name="semestre" id="cg1" /><label for="1">1</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="cg2" /> <label for="2">2</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="cg3" /> <label for="3">3</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="cg4" /> <label for="4">4</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="cg5" /><label for="5">5</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="cg6" /><label for="6">6</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="cg7" /><label for="7">7</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="cg8" /><label for="8">8</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row-align">
+            <div>
+                <button class="cb" id="math">Math</button>
+                <button class="cb" id="anglais">Anglais</button>
+            </div>
+            <div class="semcase">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li>
+                        <input type="radio" name="semestre" id="1" /><label for="1">1</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="2" /> <label for="2">2</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="3" /> <label for="3">3</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="4" /> <label for="4">4</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="semestre" id="5" /><label for="5">5</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row-align">
+        </div>
     </div>
-
+    <div class="container">
+        <div id="data">
+            <div class="tableau">
+                <input type="number" id="note" placeholder="Entrer note" step=".5" min="1" max="6">
+                <input type="text" id="desc" placeholder="Enter descritpion">
+                <input type="date" id="date" placeholder="Entrer la date">
+                <button id="add">Add</button>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>Note</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th class="moyenne">moyenne</th>
+            </tr>
+        </table>
+    </div>
+    <script src="main.js"></script>
 
 </body>
 

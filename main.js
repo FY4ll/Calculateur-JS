@@ -1,13 +1,28 @@
-let englishButton = document.getElementById('anglais');
-let mathButton = document.getElementById("math")
+let noteInput = document.querySelector('#note');
+let descInput = document.querySelector('#desc');
+let dateInput = document.querySelector('#date');
+let tableGrades = []
 
-console.log(mathButton);
-console.log(englishButton);
+document.querySelector('#add').addEventListener('click', () => {
+    let sum = 0;
+    let note = parseFloat(noteInput.value);
+    tableGrades.push(note);
+    let desc = descInput.value;
+    let date = dateInput.value;
 
-englishButton.addEventListener("click", function () {
-    console.log("J'ai click");
-})
+    for (const grade of tableGrades) {
+        sum += grade;
+    }
+    let moyenne = sum / tableGrades.length;
+    let template = `
+                <tr>
+                    <td>${note}</td>
+                    <td>${desc}</td>
+                    <td>${date}</td>
+                    <td>${moyenne}</td>
+                </tr>
+                `;
+    document.querySelector('table').innerHTML += template;
+});
 
-mathButton.addEventListener("click", function () {
-    console.log("c'est les maths");
-})
+    //.toFixed(1)
