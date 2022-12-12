@@ -79,10 +79,10 @@ btnAdd.addEventListener('click', function () {
                 </tr>
                     `
         table.innerHTML += template;
-        Addingnote(note)
+        Addinggrade(note)
     }
 });
-function Addingnote(note) {
+function Addinggrade(note) {
     let semestres = Object.keys(Notes[branche])
     console.log(semestres)
     for (const semestre of semestres) {
