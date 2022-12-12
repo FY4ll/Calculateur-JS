@@ -5,17 +5,17 @@ let Notes = {
         moy: [],
     },
     cie: {
-        semestre1: [],
+        semestre1: [1,],
         mod1: [],
         moy: [],
     },
     cdb: {
-        mathSemestre1: [],
-        mathSemestre2: [],
-        mathSemestre3: [],
-        anglaisSemestre1: [],
+        mathSemestre1: [23,],
+        mathSemestre2: [4,],
+        mathSemestre3: [5,],
+        anglaisSemestre1: [6,],
         anglaisSemestre2: [],
-        anglaisSemestre3: [],
+        anglaisSemestre3: [3,],
         anglaisSemestre4: [],
         anglaisSemestre5: [],
         moy: [],
@@ -37,7 +37,6 @@ let Notes = {
         moy: [],
     },
 };
-
 let branche;
 let module;
 let date;
@@ -56,15 +55,8 @@ for (const branchebutton of brancheButtons) {
         console.log(branche);
     });
 }
-// let semestreButtons = document.getElementsByName('semestre')
-// console.log(semestreButtons)
-// for (const semestrebutton of semestreButtons) {
-//     semestrebutton.addEventListener("click", function () {
-//         let value = semestrebutton.value
-//         console.log(value);
-//     });
-// };
-let mathanglaisButtons = document.getElementsByName('cbma')
+
+mathanglaisButtons = document.getElementsByName('cbma')
 console.log(mathanglaisButtons)
 for (const mathanglaisbutton of mathanglaisButtons) {
     mathanglaisbutton.addEventListener("click", function () {
@@ -74,7 +66,7 @@ for (const mathanglaisbutton of mathanglaisButtons) {
 };
 btnAdd.addEventListener('click', function () {
     if (branche == undefined) {
-        alert("vous devez choisir une branche");
+        alert("vous devez choisir une branche!");
     } else {
         let note = noteInput.value;
         let desc = descInput.value;
@@ -87,13 +79,17 @@ btnAdd.addEventListener('click', function () {
                 </tr>
                     `
         table.innerHTML += template;
-        console.log(branche);
-        Notes[branche].semestre1.push(note);
-        console.log(Notes[branche].semestre1);
+        Addingnote(note)
     }
 });
-
-function average() {
-
+function Addingnote(note) {
+    let semestres = Object.keys(Notes[branche])
+    console.log(semestres)
+    for (const semestre of semestres) {
+        Notes[branche][semestre].push(note)
+    }
+    console.log(Notes[branche]);
 }
+
+
 
