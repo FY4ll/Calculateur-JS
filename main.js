@@ -52,15 +52,16 @@ for (const mathanglaisbutton of mathanglaisButtons) {
         let value = mathanglaisbutton.value;
         console.log(value);
         indexSemestre = value
-        for (const semestre of cbButton) {
-            semestre.addEventListener('click', function () {
-                indexSemestre += semestre.value;
-                console.log(indexSemestre)
-            });
-        }
+
     });
 }
-
+for (const semestre of cbButton) {
+    semestre.addEventListener('click', function () {
+        indexSemestre = indexSemestre.replace(/[1-5]/g, '');
+        indexSemestre += semestre.value;
+        console.log(indexSemestre)
+    });
+}
 
 btnAdd.addEventListener('click', function () {
     if (branche == undefined) {
