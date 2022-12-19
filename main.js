@@ -1,24 +1,19 @@
 let Notes = {
     ecp: {
         semestre1: [],
-        mod1: [],
-        moy: [],
     },
     cie: {
-        semestre1: [1,],
-        mod1: [],
-        moy: [],
+        semestre1: [],
     },
     cdb: {
-        mathSemestre1: [23,],
-        mathSemestre2: [4,],
-        mathSemestre3: [5,],
-        anglaisSemestre1: [6,],
+        mathSemestre1: [],
+        mathSemestre2: [],
+        mathSemestre3: [],
+        anglaisSemestre1: [],
         anglaisSemestre2: [],
-        anglaisSemestre3: [3,],
+        anglaisSemestre3: [],
         anglaisSemestre4: [],
         anglaisSemestre5: [],
-        moy: [],
     },
     cg: {
         cultGSemestre1: [],
@@ -29,12 +24,9 @@ let Notes = {
         cultGSemestre6: [],
         cultGSemestre7: [],
         cultGSemestre8: [],
-        moy: [],
     },
     tpi: {
         semestre1: [],
-        mod1: [],
-        moy: [],
     },
 };
 let branche;
@@ -64,6 +56,12 @@ for (const mathanglaisbutton of mathanglaisButtons) {
         console.log(value);
     });
 };
+for (const sembutton of semButtons) {
+    mathanglaisbutton.addEventListener("click", function () {
+        let value = mathanglaisbutton.value;
+        console.log(value);
+    });
+};
 btnAdd.addEventListener('click', function () {
     if (branche == undefined) {
         alert("vous devez choisir une branche!");
@@ -83,6 +81,7 @@ btnAdd.addEventListener('click', function () {
     }
 });
 function Addinggrade(note) {
+    parseFloat(note)
     let semestres = Object.keys(Notes[branche])
     console.log(semestres)
     for (const semestre of semestres) {
