@@ -29,18 +29,16 @@ let Notes = {
         semestre1: [],
     },
 };
+let indexSemestre;
 let branche;
 let module;
-let date;
 let btnAdd = document.querySelector('#add');
 let table = document.querySelector('table');
 let noteInput = document.getElementById('note')
 let dateInput = document.querySelector('#date')
 let brancheButtons = document.getElementsByClassName('branchselector')
-console.log(branche)
-let semButtonscg = document.getElementById('cg')
-
-
+let cbButton = document.getElementsByName('semestre')
+mathanglaisButtons = document.getElementsByName('cbma')
 for (const branchebutton of brancheButtons) {
     branchebutton.addEventListener("click", function () {
         branche = branchebutton.value
@@ -48,37 +46,44 @@ for (const branchebutton of brancheButtons) {
     });
 }
 
-mathanglaisButtons = document.getElementsByName('cbma')
-console.log(mathanglaisButtons)
+
 for (const mathanglaisbutton of mathanglaisButtons) {
     mathanglaisbutton.addEventListener("click", function () {
         let value = mathanglaisbutton.value;
         console.log(value);
+        indexSemestre = value
+        for (const semestre of cbButton) {
+            semestre.addEventListener('click', function () {
+                indexSemestre += semestre.value;
+                console.log(indexSemestre)
+            });
+        }
     });
+}
 
-    btnAdd.addEventListener('click', function () {
-        if (branche == undefined) {
-            alert("vous devez choisir une branche!");
-        } else {
-            let note = noteInput.value;
-            let date = dateInput.value;
-            let template = `
+
+btnAdd.addEventListener('click', function () {
+    if (branche == undefined) {
+        alert("vous devez choisir une branche!");
+    } else {
+        let note = noteInput.value;
+        let date = dateInput.value;
+        let average;
+        let template = `
                 <tr>
                     <td>${note}</td>
                     <td>${date}</td>
                 </tr>
                     `
-            table.innerHTML += template;
-            Addinggrade(note)
-        }
-    });
-    function Addinggrade(note) {
-        parseFloat(note)
-        let semestres = Object.keys(Notes[branche])
-        console.log(semestres)
-        for (const semestre of semestres) {
-            Notes[branche][semestre].push(note)
-        }
-        console.log(Notes[branche]);
+        table.innerHTML += template;
+        Addinggrade(note)
     }
+});
+function Addinggrade(note) {
+    parseFloat(note)
+    let semestres = Object.keys(Notes[branche])
+    Notes[branche][indexSemestre].push(note);
+    console.log(Notes[branche][indexSemestre]);
+    console.log(Notes);
 }
+
