@@ -35,10 +35,10 @@ let date;
 let btnAdd = document.querySelector('#add');
 let table = document.querySelector('table');
 let noteInput = document.getElementById('note')
-let descInput = document.querySelector('#desc')
 let dateInput = document.querySelector('#date')
 let brancheButtons = document.getElementsByClassName('branchselector')
 console.log(branche)
+let semButtonscg = document.getElementById('cg')
 
 
 for (const branchebutton of brancheButtons) {
@@ -55,40 +55,30 @@ for (const mathanglaisbutton of mathanglaisButtons) {
         let value = mathanglaisbutton.value;
         console.log(value);
     });
-};
-for (const sembutton of semButtons) {
-    mathanglaisbutton.addEventListener("click", function () {
-        let value = mathanglaisbutton.value;
-        console.log(value);
-    });
-};
-btnAdd.addEventListener('click', function () {
-    if (branche == undefined) {
-        alert("vous devez choisir une branche!");
-    } else {
-        let note = noteInput.value;
-        let desc = descInput.value;
-        let date = dateInput.value;
-        let template = `
+
+    btnAdd.addEventListener('click', function () {
+        if (branche == undefined) {
+            alert("vous devez choisir une branche!");
+        } else {
+            let note = noteInput.value;
+            let date = dateInput.value;
+            let template = `
                 <tr>
                     <td>${note}</td>
-                    <td>${desc}</td>
                     <td>${date}</td>
                 </tr>
                     `
-        table.innerHTML += template;
-        Addinggrade(note)
+            table.innerHTML += template;
+            Addinggrade(note)
+        }
+    });
+    function Addinggrade(note) {
+        parseFloat(note)
+        let semestres = Object.keys(Notes[branche])
+        console.log(semestres)
+        for (const semestre of semestres) {
+            Notes[branche][semestre].push(note)
+        }
+        console.log(Notes[branche]);
     }
-});
-function Addinggrade(note) {
-    parseFloat(note)
-    let semestres = Object.keys(Notes[branche])
-    console.log(semestres)
-    for (const semestre of semestres) {
-        Notes[branche][semestre].push(note)
-    }
-    console.log(Notes[branche]);
 }
-
-
-
