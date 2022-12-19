@@ -1,9 +1,9 @@
 let Notes = {
     ecp: {
-        semestre1: [],
+        Semestre1: [],
     },
     cie: {
-        semestre1: [],
+        Semestre1: [],
     },
     cdb: {
         mathSemestre1: [],
@@ -26,10 +26,16 @@ let Notes = {
         cultGSemestre8: [],
     },
     tpi: {
-        semestre1: [],
+        Semestre1: [],
     },
 };
-let indexSemestre;
+let template = `
+                <tr>
+                    <td>${note}</td>
+                    <td>${date}</td>
+                </tr>
+                    `
+let indexSemestre = "Semestre1"
 let branche;
 let module;
 let btnAdd = document.querySelector('#add');
@@ -69,14 +75,6 @@ btnAdd.addEventListener('click', function () {
     } else {
         let note = noteInput.value;
         let date = dateInput.value;
-        let average;
-        let template = `
-                <tr>
-                    <td>${note}</td>
-                    <td>${date}</td>
-                </tr>
-                    `
-        table.innerHTML += template;
         Addinggrade(note)
     }
 });
@@ -87,4 +85,3 @@ function Addinggrade(note) {
     console.log(Notes[branche][indexSemestre]);
     console.log(Notes);
 }
-
