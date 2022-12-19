@@ -29,15 +29,8 @@ let Notes = {
         Semestre1: [],
     },
 };
-let template = `
-                <tr>
-                    <td>${note}</td>
-                    <td>${date}</td>
-                </tr>
-                    `
 let indexSemestre = "Semestre1"
 let branche;
-let module;
 let btnAdd = document.querySelector('#add');
 let table = document.querySelector('table');
 let noteInput = document.getElementById('note')
@@ -49,9 +42,9 @@ for (const branchebutton of brancheButtons) {
     branchebutton.addEventListener("click", function () {
         branche = branchebutton.value
         console.log(branche);
+        changetable()
     });
 }
-
 
 for (const mathanglaisbutton of mathanglaisButtons) {
     mathanglaisbutton.addEventListener("click", function () {
@@ -75,6 +68,13 @@ btnAdd.addEventListener('click', function () {
     } else {
         let note = noteInput.value;
         let date = dateInput.value;
+        let noteInsert = `
+                <tr>
+                    <td>${note}</td>
+                    <td>${date}</td>
+                </tr>
+                    `
+        table.innerHTML += noteInsert;
         Addinggrade(note)
     }
 });
@@ -84,4 +84,22 @@ function Addinggrade(note) {
     Notes[branche][indexSemestre].push(note);
     console.log(Notes[branche][indexSemestre]);
     console.log(Notes);
+}
+console.log(indexSemestre.length)
+function changetable() {
+    index = 0
+    let template = `
+                <tr>
+                    <td>${index}</td>
+                </tr>
+                    `
+    let tablenum = table.rows.length
+    console.log(tablenum)
+    for (i = 0; 1 < Notes[branche][indexSemestre].length; i++) {
+        index = Notes[branche][indexSemestre][i];
+        table.innerHTML += template;
+    }
+    console.log('index test');
+    console.log(indexSemestre);
+
 }
