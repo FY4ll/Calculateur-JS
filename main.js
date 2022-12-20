@@ -42,7 +42,7 @@ for (const branchebutton of brancheButtons) {
     branchebutton.addEventListener("click", function () {
         branche = branchebutton.value
         console.log(branche);
-        changetable()
+        removetable()
     });
 }
 
@@ -86,7 +86,7 @@ function Addinggrade(note) {
     console.log(Notes);
 }
 console.log(indexSemestre.length)
-function changetable() {
+function removetable() {
     index = 0
     let template = `
                 <tr>
@@ -95,9 +95,10 @@ function changetable() {
                     `
     let tablenum = table.rows.length
     console.log(tablenum)
-    for (i = 0; 1 < Notes[branche][indexSemestre].length; i++) {
-        index = Notes[branche][indexSemestre][i];
-        table.innerHTML += template;
+    for (var i = 1; i <= tablenum; i++) {
+
+        table.deleteRow(1);
+
     }
     console.log('index test');
     console.log(indexSemestre);
