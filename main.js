@@ -42,7 +42,8 @@ for (const branchebutton of brancheButtons) {
     branchebutton.addEventListener("click", function () {
         branche = branchebutton.value
         console.log(branche);
-        removetable()
+        // removetable()
+        loadTable()
     });
 }
 
@@ -87,20 +88,23 @@ function Addinggrade(note) {
 }
 console.log(indexSemestre.length)
 function removetable() {
-    index = 0
-    let template = `
-                <tr>
-                    <td>${index}</td>
-                </tr>
-                    `
     let tablenum = table.rows.length
     console.log(tablenum)
-    for (var i = 1; i <= tablenum; i++) {
+    if (Notes[branche][indexSemestre].length > 1) {
+        for (var i = 1; i <= tablenum; i++) {
+            table.deleteRow(1);
 
-        table.deleteRow(1);
-
+        }
     }
-    console.log('index test');
-    console.log(indexSemestre);
 
+}
+function loadTable() {
+    for (i = 0; i <= Notes[branche][indexSemestre].length; i++) {
+        let Template = `
+        <tr>
+            <td>${Notes[branche][indexSemestre][i]}</td>
+        </tr>
+            `
+        table.innerHTML += Template
+    }
 }
