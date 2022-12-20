@@ -36,33 +36,40 @@ let table = document.querySelector('table');
 let noteInput = document.getElementById('note')
 let dateInput = document.querySelector('#date')
 let brancheButtons = document.getElementsByClassName('branchselector')
-let cbButton = document.getElementsByName('semestre')
+let cbButton = document.getElementsByName('CB')
+let cgButton = document.getElementsByName('cg')
 mathanglaisButtons = document.getElementsByName('cbma')
 for (const branchebutton of brancheButtons) {
     branchebutton.addEventListener("click", function () {
         branche = branchebutton.value
         console.log(branche);
         removetable()
-        // loadTable()
+        loadTable()
     });
 }
 
 for (const mathanglaisbutton of mathanglaisButtons) {
     mathanglaisbutton.addEventListener("click", function () {
         let value = mathanglaisbutton.value;
-        console.log(value);
         indexSemestre = value
 
     });
 }
 for (const semestre of cbButton) {
     semestre.addEventListener('click', function () {
-        indexSemestre = indexSemestre.replace(/[1-5]/g, '');
+        indexSemestre = indexSemestre.replace(/[1-8]/g, '');
+        indexSemestre += semestre.value;
+        removetable()
+        loadTable()
+    });
+}
+for (const semestre of cgButton) {
+    semestre.addEventListener('click', function () {
+        indexSemestre = indexSemestre.replace(/[1-8]/g, '');
         indexSemestre += semestre.value;
         console.log(indexSemestre)
     });
 }
-
 btnAdd.addEventListener('click', function () {
     if (branche == undefined) {
         alert("vous devez choisir une branche!");
@@ -84,7 +91,6 @@ function Addinggrade(note) {
     let semestres = Object.keys(Notes[branche])
     Notes[branche][indexSemestre].push(note);
     console.log(Notes[branche][indexSemestre]);
-    console.log(Notes);
 }
 console.log(indexSemestre.length)
 function removetable() {
@@ -98,12 +104,13 @@ function removetable() {
     }
 }
 function loadTable() {
-    for (i = 0; i <= Notes[branche][indexSemestre].length; i++) {
+    for (i = 0; i < Notes[branche][indexSemestre].length; i++) {
         let Template = `
-        <tr>
-            <td>${Notes[branche][indexSemestre][i]}</td>
-        </tr>
-            `
+         <tr>
+             <td>${Notes[branche][indexSemestre][i]}</td>
+         </tr>
+             `
         table.innerHTML += Template
     }
 }
+
