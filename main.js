@@ -42,8 +42,8 @@ for (const branchebutton of brancheButtons) {
     branchebutton.addEventListener("click", function () {
         branche = branchebutton.value
         console.log(branche);
-        // removetable()
-        loadTable()
+        removetable()
+        // loadTable()
     });
 }
 
@@ -90,13 +90,12 @@ console.log(indexSemestre.length)
 function removetable() {
     let tablenum = table.rows.length
     console.log(tablenum)
-    if (Notes[branche][indexSemestre].length > 1) {
-        for (var i = 1; i <= tablenum; i++) {
+    if (tablenum >= 2) {
+        for (var i = 1; i < tablenum; i++) {
             table.deleteRow(1);
 
         }
     }
-
 }
 function loadTable() {
     for (i = 0; i <= Notes[branche][indexSemestre].length; i++) {
