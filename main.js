@@ -1,21 +1,29 @@
 let Notes = {
     ecp: {
         Semestre1: [],
-        moy: [],
+        Moy1: [],
     },
     cie: {
         Semestre1: [],
-        moy: [],
+        Moy1: [],
     },
     cdb: {
         mathSemestre1: [],
+        mathMoy1: [],
         mathSemestre2: [],
+        mathMoy2: [],
         mathSemestre3: [],
+        mathMoy2: [],
         anglaisSemestre1: [],
+        angMoy1: [],
         anglaisSemestre2: [],
+        angMoy2: [],
         anglaisSemestre3: [],
+        angMoy3: [],
         anglaisSemestre4: [],
+        angMoy4: [],
         anglaisSemestre5: [],
+        angMoy5: [],
     },
     cg: {
         cultGSemestre1: [],
@@ -29,10 +37,11 @@ let Notes = {
     },
     tpi: {
         Semestre1: [],
-        moy: [],
+        Moy1: [],
     },
 };
 let indexSemestre = "Semestre1"
+let indexMoy = "Moy1"
 let branche;
 let btnAdd = document.querySelector('#add');
 let table = document.querySelector('table');
