@@ -42,7 +42,6 @@ mathanglaisButtons = document.getElementsByName('cbma')
 for (const branchebutton of brancheButtons) {
     branchebutton.addEventListener("click", function () {
         branche = branchebutton.value
-        console.log(branche);
         removetable()
         loadTable()
     });
@@ -67,7 +66,6 @@ for (const semestre of cgButton) {
     semestre.addEventListener('click', function () {
         indexSemestre = indexSemestre.replace(/[1-8]/g, '');
         indexSemestre += semestre.value;
-        console.log(indexSemestre)
     });
 }
 btnAdd.addEventListener('click', function () {
@@ -75,27 +73,18 @@ btnAdd.addEventListener('click', function () {
         alert("vous devez choisir une branche!");
     } else {
         let note = noteInput.value;
-        let date = dateInput.value;
+        Notes[branche][indexSemestre].push(parseFloat(note));
         let noteInsert = `
                 <tr>
                     <td>${note}</td>
-                    <td>${date}</td>
+                    <td>${average()}</td>
                 </tr>
                     `
         table.innerHTML += noteInsert;
-        Addinggrade(note)
     }
 });
-function Addinggrade(note) {
-    parseFloat(note)
-    let semestres = Object.keys(Notes[branche])
-    Notes[branche][indexSemestre].push(note);
-    console.log(Notes[branche][indexSemestre]);
-}
-console.log(indexSemestre.length)
 function removetable() {
     let tablenum = table.rows.length
-    console.log(tablenum)
     if (tablenum >= 2) {
         for (var i = 1; i < tablenum; i++) {
             table.deleteRow(1);
@@ -108,9 +97,19 @@ function loadTable() {
         let Template = `
          <tr>
              <td>${Notes[branche][indexSemestre][i]}</td>
+             <td>${Notes[branche][indexSemestre][i]}</td>
          </tr>
              `
         table.innerHTML += Template
     }
+}
+function average() {
+    let totalnote = 0;
+    for (const note of Notes[branche][indexSemestre]) {
+        totalnote += note
+    }
+    totalnote = totalnote / Notes[branche][indexSemestre].length;
+    console.log(totalnote)
+    return totalnote;
 }
 
