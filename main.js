@@ -1,9 +1,11 @@
 let Notes = {
     ecp: {
         Semestre1: [],
+        moy: [],
     },
     cie: {
         Semestre1: [],
+        moy: [],
     },
     cdb: {
         mathSemestre1: [],
@@ -27,6 +29,7 @@ let Notes = {
     },
     tpi: {
         Semestre1: [],
+        moy: [],
     },
 };
 let indexSemestre = "Semestre1"
@@ -97,7 +100,7 @@ function loadTable() {
         let Template = `
          <tr>
              <td>${Notes[branche][indexSemestre][i]}</td>
-             <td>${Notes[branche][indexSemestre][i]}</td>
+             <td>${Notes[branche].moy[i]}</td>
          </tr>
              `
         table.innerHTML += Template
@@ -110,6 +113,8 @@ function average() {
     }
     totalnote = totalnote / Notes[branche][indexSemestre].length;
     console.log(totalnote)
+    Notes[branche].moy.push(totalnote);
+    console.log(Notes[branche].moy)
     return totalnote;
-}
 
+}
